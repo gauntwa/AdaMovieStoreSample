@@ -13,6 +13,7 @@ namespace AdaMovieStoreSample.api
         // GET: api/test
         public IEnumerable<string> Get()
         {
+
             return new string[] { "value1", "value2" };
         }
 
