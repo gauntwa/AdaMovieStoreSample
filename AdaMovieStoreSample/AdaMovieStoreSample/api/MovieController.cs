@@ -21,7 +21,8 @@ namespace AdaMovieStoreSample.api
         public Movie Get(int id)
         {
             var movieRepo = new MovieRepository();
-            return movieRepo.Find(id);
+            var movie = movieRepo.Find(id);
+            return movie;
         }
 
         // POST: api/Movie

@@ -1,14 +1,31 @@
 ﻿<!DOCTYPE html>
 
-<html ng-app>
+<html ng-app="movieStore">
 <head>
-    <script data-require="angular.js@1.4.7" data-semver="1.4.7" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.js"></script>
+    <script src="~/Scripts/angular.min.js"></script>
     <meta name="viewport" content="width=device-width"/>
     <title>@ViewBag.Title</title>
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
+<div>
+    @RenderBody()
+</div>
 </body>
+<script>
+    var app = angular.module("movieStore", []);
+</script>
+
+<script>
+    var app = angular.module("movieStore");
+    app.controller("MovieController", function($scope, $http) {
+
+        var onMovieComplete = function(response) {
+            $scope.movie = response.data;
+        };
+
+        $http.get("/api/movie/@ViewBag.id")
+            .then(onMovieComplete);
+
+    });
+</script>
 </html>

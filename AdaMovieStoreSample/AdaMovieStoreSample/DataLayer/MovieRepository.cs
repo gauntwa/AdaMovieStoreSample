@@ -15,7 +15,7 @@ namespace AdaMovieStoreSample.DataLayer
 {
     public class MovieRepository: IMovieRepository
     {
-        private IDbConnection db = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=E:\source\AdaMovieStoreSample\AdaMovieStoreSample\AdaMovieStoreSample\App_Data\movieStore.mdf;Integrated Security=True");
+        private IDbConnection db = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=C:\Users\x1e5.NORD\Source\Repos\AdaMovieStoreSample\AdaMovieStoreSample\AdaMovieStoreSample\AdaMovieStoreSample\App_Data\movieStore.mdf;Integrated Security=True");
         public Movie Find(int id)
         {
             return this.db.Query<Movie>(string.Format("select * from movie where id={0}",id)).SingleOrDefault();
