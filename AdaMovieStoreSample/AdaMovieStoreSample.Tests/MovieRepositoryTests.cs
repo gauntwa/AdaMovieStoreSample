@@ -3,6 +3,7 @@ using System.Diagnostics;
 using AdaMovieStoreSample.DataLayer;
 using AdaMovieStoreSample.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using FluentAssertions;
 
 
 
