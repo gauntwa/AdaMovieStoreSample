@@ -11,21 +11,10 @@
     @RenderBody()
 </div>
 </body>
+
 <script>
     var app = angular.module("movieStore", []);
 </script>
 
-<script>
-    var app = angular.module("movieStore");
-    app.controller("MovieController", function($scope, $http) {
-
-        var onMovieComplete = function(response) {
-            $scope.movie = response.data;
-        };
-
-        $http.get("/api/movie/@ViewBag.id")
-            .then(onMovieComplete);
-
-    });
-</script>
+@RenderSection("scripts", required: false)
 </html>

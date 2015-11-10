@@ -4,11 +4,26 @@
     Layout = "~/Views/Shared/_ngLayout.cshtml";
 }
 
-
 <h2>MovieDetail</h2>
 <div ng-controller="MovieController">
     <div>Id: {{movie.Id}}</div>
     <div>Name: {{movie.Name}}</div>
     <div>Rating: {{movie.Rating}}</div>
 </div>
+@section scripts
+{
+    <script>
+    var app = angular.module("movieStore");
+    app.controller("MovieController", function($scope, $http) {
+
+        var onMovieComplete = function(response) {
+            $scope.movie = response.data;
+        };
+
+        $http.get("/api/movie/@ViewBag.id")
+            .then(onMovieComplete);
+
+    });
+</script>
+}
 
