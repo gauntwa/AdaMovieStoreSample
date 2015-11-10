@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc.Html;
@@ -14,10 +15,10 @@ namespace AdaMovieStoreSample.DataLayer
 {
     public class MovieRepository: IMovieRepository
     {
-        private IDbConnection db = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=C:\Users\x1e5.NORD\Source\Repos\AdaMovieStoreSample\AdaMovieStoreSample\AdaMovieStoreSample\AdaMovieStoreSample\App_Data\movieStore.mdf;Integrated Security=True");
+        private IDbConnection db = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFileName=E:\source\AdaMovieStoreSample\AdaMovieStoreSample\AdaMovieStoreSample\App_Data\movieStore.mdf;Integrated Security=True");
         public Movie Find(int id)
         {
-            throw new NotImplementedException();
+            return this.db.Query<Movie>(string.Format("select * from movie where id={0}",id)).SingleOrDefault();
         }
 
         public List<Movie> GetAll()
